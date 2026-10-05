@@ -1,0 +1,596 @@
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #082941;
+    color: rgb(224, 224, 183);
+    font-family: Arial, sans-serif;
+}
+
+
+/* ==================== */
+/* NAWIGACJA */
+/* ==================== */
+
+.navbar {
+    width: 100%;
+    padding: 25px 6%;
+
+    background-color: #082941;
+    color: rgb(224, 224, 183);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: 10;
+}
+
+.logo {
+    font-family: Georgia, serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    color: rgb(224, 224, 183);
+    text-decoration: none;
+
+    font-size: 12px;
+    letter-spacing: 2px;
+
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    opacity: 0.6;
+}
+
+
+/* ==================== */
+/* HERO */
+/* ==================== */
+
+.hero {
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+/* LEWA STRONA */
+
+.hero-left {
+    padding: 80px 12%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/* PRAWA STRONA */
+
+.hero-right {
+    padding: 80px 12%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ==================== */
+/* TEKST HERO */
+/* ==================== */
+
+.small-title {
+    font-size: 16px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: 64px;
+    line-height: 1.05;
+
+    margin: 0 0 30px 0;
+}
+
+.hero-description {
+    max-width: 500px;
+
+    font-size: 20px;
+    line-height: 1.6;
+
+    margin: 0;
+}
+
+
+/* ==================== */
+/* PRZYCISK */
+/* ==================== */
+
+.button {
+    display: inline-block;
+    width: fit-content;
+
+    margin-top: 35px;
+    padding: 16px 32px;
+
+    background-color: rgb(224, 224, 183);
+    color: #082941;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    border-radius: 8px;
+
+    transition: 0.3s;
+}
+
+.button:hover {
+    background-color: rgb(200, 200, 160);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ==================== */
+/* KARTA HERO */
+/* ==================== */
+
+.hero-card {
+    width: 100%;
+    max-width: 480px;
+    min-height: 500px;
+
+    padding: 50px;
+
+    border: 1px solid rgb(224, 224, 183);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    text-align: center;
+
+    animation: cardFloat 3.5s ease-in-out infinite;
+}
+
+.card-number {
+    font-size: 14px;
+    letter-spacing: 4px;
+    margin: 0;
+}
+
+.hero-card h2 {
+    font-family: Georgia, serif;
+    font-size: 42px;
+    line-height: 1.1;
+}
+
+.card-line {
+    width: 60px;
+    height: 2px;
+
+    background-color: rgb(224, 224, 183);
+
+    margin: 0 auto;
+}
+
+.hero-card p:last-child {
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+
+/* ==================== */
+/* O MNIE */
+/* ==================== */
+
+.about {
+    min-height: 100vh;
+
+    padding: 120px 15%;
+
+    background-color: rgb(224, 224, 183);
+    color: #082941;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about h2 {
+    font-family: Georgia, serif;
+    font-size: 42px;
+    margin-top: 0;
+}
+
+.about p {
+    max-width: 850px;
+
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+
+/* ==================== */
+/* OFERTA */
+/* ==================== */
+
+.offer {
+    min-height: 100vh;
+
+    padding: 120px 8%;
+
+    background-color: #082941;
+    color: rgb(224, 224, 183);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.offer h2 {
+    font-family: Georgia, serif;
+    font-size: 52px;
+
+    margin: 0;
+
+    text-align: left;
+}
+
+.offer-list {
+    display: flex;
+    gap: 0;
+
+    margin-top: 70px;
+}
+
+.offer-item {
+    flex: 1;
+    min-height: 320px;
+
+    padding: 40px;
+
+    border-top: 1px solid rgb(224, 224, 183);
+    border-bottom: 1px solid rgb(224, 224, 183);
+
+    text-align: left;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    transition: 0.3s;
+}
+
+.offer-item + .offer-item {
+    border-left: 1px solid rgb(224, 224, 183);
+}
+
+.offer-item:hover {
+    background-color: rgb(224, 224, 183);
+    color: #082941;
+}
+
+.offer-number {
+    font-size: 13px;
+    letter-spacing: 3px;
+
+    opacity: 0.6;
+}
+
+.offer-item h3 {
+    font-family: Georgia, serif;
+    font-size: 27px;
+    line-height: 1.2;
+
+    margin: 30px 0 20px 0;
+}
+
+.offer-item p {
+    line-height: 1.7;
+
+    max-width: 360px;
+
+    margin: 0;
+}
+
+
+/* NUMERY KAFELKÓW */
+
+.offer-number {
+    font-size: 13px;
+    letter-spacing: 3px;
+
+    opacity: 0.7;
+}
+
+
+/* ==================== */
+/* KONTAKT */
+/* ==================== */
+
+.contact {
+    min-height: 80vh;
+
+    padding: 120px 12%;
+
+    background-color: rgb(224, 224, 183);
+    color: #082941;
+
+    display: flex;
+    align-items: center;
+}
+
+.contact-content {
+    max-width: 900px;
+}
+
+.contact-small-title {
+    font-size: 15px;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.contact h2 {
+    font-family: Georgia, serif;
+    font-size: 64px;
+    line-height: 1.05;
+
+    margin: 0 0 35px 0;
+}
+
+.contact-description {
+    max-width: 650px;
+
+    font-size: 19px;
+    line-height: 1.7;
+}
+
+.contact-details {
+    margin-top: 35px;
+}
+.contact-box {
+    display: flex;
+    flex-direction: column;
+
+    width: 320px;
+
+    padding: 24px 30px;
+
+    background-color: #082941;
+    color: rgb(224, 224, 183);
+
+    border: 1px solid rgb(224, 224, 183);
+    border-radius: 4px;
+
+    box-shadow:
+        0 0 0 9px #082941,
+        0 0 0 11px rgb(224, 224, 183);
+
+    position: relative;
+
+    transition: 0.35s ease;
+}
+
+.contact-box:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 0 0 9px #082941,
+        0 0 0 11px rgb(224, 224, 183),
+        0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.contact-box p {
+    margin: 6px 0;
+
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+.contact-box p {
+    margin: 6px 0;
+
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+.contact-details p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin: 5px 0;
+}
+
+
+/* ==================== */
+/* STOPKA */
+/* ==================== */
+
+.footer {
+    min-height: 120px;
+
+    padding: 35px 8%;
+
+    background-color: #082941;
+    color: rgb(224, 224, 183);
+
+    border-top: 1px solid rgb(224, 224, 183);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+.footer p {
+    margin: 0;
+
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.footer a {
+    color: rgb(224, 224, 183);
+
+    text-decoration: none;
+
+    font-size: 13px;
+    letter-spacing: 2px;
+
+    transition: 0.3s;
+}
+
+.footer a:hover {
+    opacity: 0.6;
+}
+
+
+/* ==================== */
+/* ANIMACJE PRZY SCROLLU */
+/* ==================== */
+
+.about,
+.offer,
+.offer-item,
+.contact {
+    opacity: 0;
+    transform: translateY(40px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.about.show,
+.offer.show,
+.offer-item.show,
+.contact.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ==================== */
+/* ANIMACJA KARTY */
+/* ==================== */
+
+@keyframes cardFloat {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ==================== */
+/* TELEFON */
+/* ==================== */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 20px 5%;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+
+    .nav-links {
+        width: 100%;
+
+        gap: 12px;
+
+        justify-content: space-between;
+
+        flex-wrap: wrap;
+    }
+
+
+    .hero {
+        display: flex;
+
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+
+    .hero-left {
+        padding: 100px 5% 60px;
+    }
+
+
+    .hero-right {
+        padding: 40px 5% 80px;
+    }
+
+
+    h1 {
+        font-size: 46px;
+    }
+
+
+    .hero-card {
+        min-height: 400px;
+
+        padding: 35px;
+    }
+
+
+    .about,
+    .offer,
+    .contact {
+        padding: 90px 8%;
+    }
+
+
+    .offer-list {
+        flex-direction: column;
+    }
+
+
+    .contact h2 {
+        font-size: 48px;
+    }
+
+
+    .footer {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+}

@@ -1,6 +1,12 @@
+window.addEventListener("load", () => {
+    window.scrollTo(0, 0);
+});
+
+
 const elements = document.querySelectorAll(
     ".about, .offer, .offer-item, .contact"
 );
+
 
 const observer = new IntersectionObserver(
     (entries) => {
@@ -16,6 +22,7 @@ const observer = new IntersectionObserver(
         threshold: 0.15
     }
 );
+
 
 elements.forEach((element) => {
     observer.observe(element);

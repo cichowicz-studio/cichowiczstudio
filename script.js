@@ -6,14 +6,19 @@ history.scrollRestoration = "manual";
 // ====================
 
 function goToStart() {
-    window.scrollTo(0, 0);
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "instant"
+    });
 }
 
 
-// Przy każdym wejściu na stronę
+// Przy wejściu na stronę
 window.addEventListener("load", () => {
 
-    // Usuwamy zapamiętaną kotwicę z adresu
+    goToStart();
+
     if (window.location.hash) {
         history.replaceState(
             null,
@@ -22,21 +27,25 @@ window.addEventListener("load", () => {
         );
     }
 
-    // Wracamy na samą górę
-    goToStart();
-
-    // Drugi raz po krótkiej chwili — pomaga na telefonach
     setTimeout(() => {
         goToStart();
     }, 100);
+
+    setTimeout(() => {
+        goToStart();
+    }, 300);
 });
 
 
-// Dodatkowe zabezpieczenie dla mobilnych przeglądarek
+// Zabezpieczenie dla telefonów
 window.addEventListener("pageshow", () => {
+
+    goToStart();
+
     setTimeout(() => {
         goToStart();
-    }, 50);
+    }, 100);
+
 });
 
 

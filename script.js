@@ -1,12 +1,42 @@
 history.scrollRestoration = "manual";
 
-// Przy wejściu/odświeżeniu strony zawsze zaczynamy od START
+
+// ====================
+// START STRONY
+// ====================
+
+function goToStart() {
+    window.scrollTo(0, 0);
+}
+
+
+// Przy każdym wejściu na stronę
 window.addEventListener("load", () => {
+
+    // Usuwamy zapamiętaną kotwicę z adresu
     if (window.location.hash) {
-        history.replaceState(null, "", window.location.pathname);
+        history.replaceState(
+            null,
+            "",
+            window.location.pathname + window.location.search
+        );
     }
 
-    window.scrollTo(0, 0);
+    // Wracamy na samą górę
+    goToStart();
+
+    // Drugi raz po krótkiej chwili — pomaga na telefonach
+    setTimeout(() => {
+        goToStart();
+    }, 100);
+});
+
+
+// Dodatkowe zabezpieczenie dla mobilnych przeglądarek
+window.addEventListener("pageshow", () => {
+    setTimeout(() => {
+        goToStart();
+    }, 50);
 });
 
 
@@ -20,6 +50,7 @@ const elements = document.querySelectorAll(
 
 const observer = new IntersectionObserver(
     (entries) => {
+
         entries.forEach((entry) => {
 
             if (entry.isIntersecting) {
@@ -27,11 +58,13 @@ const observer = new IntersectionObserver(
             }
 
         });
+
     },
     {
         threshold: 0.15
     }
 );
+
 
 elements.forEach((element) => {
     observer.observe(element);

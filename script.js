@@ -1,3 +1,4 @@
+
 history.scrollRestoration = "manual";
 
 
@@ -54,7 +55,7 @@ window.addEventListener("pageshow", () => {
 // ====================
 
 const elements = document.querySelectorAll(
-    ".about, .offer, .offer-item, .contact"
+    ".about, .offer, .offer-item, .contact, .reveal"
 );
 
 const observer = new IntersectionObserver(

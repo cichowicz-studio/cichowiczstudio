@@ -931,3 +931,23 @@ section {
         transform: none;
     }
 }
+/* Kontakt – stałe tło podczas animacji */
+
+.contact.reveal {
+    opacity: 1;
+    transform: none;
+}
+
+.contact .contact-content {
+    opacity: 0;
+    transform: translateY(24px);
+
+    transition:
+        opacity 0.65s ease,
+        transform 0.65s ease;
+}
+
+.contact.show .contact-content {
+    opacity: 1;
+    transform: translateY(0);
+}

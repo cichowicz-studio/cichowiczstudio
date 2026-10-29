@@ -1141,3 +1141,71 @@ section {
 .contact-content {
     gap: 22px;
 }
+/* Mniejsze odstępy między tekstami */
+.about h2,
+.offer h2,
+.process h2,
+.contact h2 {
+    margin-bottom: 16px;
+}
+
+.about > p:not(.section-label) {
+    margin-bottom: 14px;
+}
+
+.section-intro {
+    margin-bottom: 20px;
+}
+
+.offer-item h3 {
+    margin-top: 18px;
+    margin-bottom: 10px;
+}
+
+.offer-item p {
+    margin-bottom: 10px;
+}
+
+.process-item h3 {
+    margin-bottom: 8px;
+}
+
+.process-item p {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.hero-description {
+    margin-top: 18px;
+    margin-bottom: 22px;
+}
+
+.hero-left h1 {
+    margin-bottom: 14px;
+}
+
+.about-note {
+    margin-top: 20px;
+}
+
+.offer-list,
+.process-list {
+    margin-top: 25px;
+}
+
+.contact-description {
+    margin-top: 12px;
+    margin-bottom: 18px;
+}
+/* Niższa sekcja O mnie */
+.about {
+    min-height: auto;
+    padding-top: 65px;
+    padding-bottom: 65px;
+}
+
+.about-note {
+    margin-top: 18px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}

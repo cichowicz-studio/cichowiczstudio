@@ -1209,3 +1209,146 @@ section {
     padding-top: 18px;
     padding-bottom: 18px;
 }
+/* O MNIE — jeden szeroki, beżowy prostokąt */
+.about {
+    background: #082941 !important;
+    min-height: auto !important;
+    height: auto !important;
+    padding: 50px 24px !important;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+/* Wszystkie elementy mają wspólną szerokość i kolor */
+.about > * {
+    width: 100%;
+    max-width: 1100px;
+    box-sizing: border-box;
+    background: rgb(224, 224, 183) !important;
+    color: #082941;
+    margin: 0 !important;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+/* Etykieta na górze */
+.about > .section-label {
+    padding-top: 40px;
+    padding-bottom: 12px;
+    border-radius: 12px 12px 0 0;
+}
+
+/* Główny nagłówek */
+.about > h2 {
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+/* Treść */
+.about > p:not(.section-label) {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 1.8;
+}
+
+/* Notatka na dole prostokąta */
+.about > .about-note {
+    padding-top: 25px;
+    padding-bottom: 40px;
+    border-radius: 0 0 12px 12px;
+}
+
+.about .about-note p {
+    color: #082941;
+}
+
+/* Telefony */
+@media (max-width: 768px) {
+    .about {
+        padding: 30px 16px !important;
+    }
+
+    .about > * {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .about > .section-label {
+        padding-top: 28px;
+    }
+
+    .about > .about-note {
+        padding-bottom: 28px;
+    }
+}
+/* WYRÓWNANIE CAŁEGO PROSTOKĄTA O MNIE */
+.about > .section-label,
+.about > h2,
+.about > p,
+.about > .about-note {
+    width: 100% !important;
+    max-width: 1100px !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    align-self: center !important;
+}
+
+/* Akapity — bez zwężania tekstu */
+.about > p:not(.section-label) {
+    display: block !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Notatka na dole */
+.about > .about-note {
+    width: 100% !important;
+    max-width: 1100px !important;
+    box-sizing: border-box !important;
+}
+
+/* Zagnieżdżony tekst notatki zachowuje własne formatowanie */
+.about > .about-note p {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+/* KONTRAST MIĘDZY WSPÓŁPRACĄ A KONTAKTEM */
+
+/* Współpraca — jasna sekcja */
+.process {
+    background: rgb(224, 224, 183) !important;
+    color: #082941;
+    padding-top: 75px;
+    padding-bottom: 75px;
+}
+
+/* Kontakt — ciemna sekcja */
+.contact {
+    background: #082941 !important;
+    color: rgb(224, 224, 183);
+    padding-top: 75px;
+    padding-bottom: 75px;
+}
+
+/* Nagłówki kontaktu */
+.contact h2,
+.contact .section-label {
+    color: rgb(224, 224, 183);
+}
+
+/* Prostokąt z danymi kontaktowymi */
+.contact-box {
+    background: rgb(224, 224, 183) !important;
+    color: #082941 !important;
+    border-radius: 12px;
+    padding: 30px;
+}
+
+/* Tekst wewnątrz prostokąta */
+.contact-box p,
+.contact-box a {
+    color: #082941 !important;
+}

@@ -101,3 +101,128 @@ const observer = new IntersectionObserver(
 elements.forEach((element) => {
     observer.observe(element);
 });
+// ====================
+// ZGODA NA COOKIES I GA4
+// ====================
+
+const GA_MEASUREMENT_ID = "G-554EK4HGWP";
+const CONSENT_STORAGE_KEY = "cichowicz_analytics_consent";
+
+const cookieBanner = document.getElementById("cookieBanner");
+const acceptAnalyticsButton = document.getElementById("acceptAnalytics");
+const rejectAnalyticsButton = document.getElementById("rejectAnalytics");
+const cookieSettingsButton = document.getElementById("cookieSettings");
+
+function getAnalyticsConsent() {
+    try {
+        return localStorage.getItem(CONSENT_STORAGE_KEY);
+    } catch (error) {
+        return null;
+    }
+}
+
+function saveAnalyticsConsent(value) {
+    try {
+        localStorage.setItem(CONSENT_STORAGE_KEY, value);
+    } catch (error) {
+        console.warn("Nie udało się zapisać ustawień cookies.");
+    }
+}
+
+function showCookieBanner() {
+    if (cookieBanner) {
+        cookieBanner.classList.add("is-visible");
+    }
+}
+
+function hideCookieBanner() {
+    if (cookieBanner) {
+        cookieBanner.classList.remove("is-visible");
+    }
+}
+
+function loadGoogleAnalytics() {
+    if (window.cichowiczAnalyticsLoaded) return;
+
+    window.cichowiczAnalyticsLoaded = true;
+
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+
+    window.gtag = gtag;
+
+    gtag("js", new Date());
+    gtag("config", GA_MEASUREMENT_ID);
+
+    const analyticsScript = document.createElement("script");
+
+    analyticsScript.async = true;
+    analyticsScript.src =
+        "https://www.googletagmanager.com/gtag/js?id=" +
+        GA_MEASUREMENT_ID;
+
+    document.head.appendChild(analyticsScript);
+}
+
+function acceptAnalytics() {
+    saveAnalyticsConsent("accepted");
+
+    hideCookieBanner();
+
+    if (cookieSettingsButton) {
+        cookieSettingsButton.classList.add("is-visible");
+    }
+
+    loadGoogleAnalytics();
+}
+
+function rejectAnalytics() {
+    const analyticsWasLoaded = window.cichowiczAnalyticsLoaded;
+
+    saveAnalyticsConsent("rejected");
+
+    hideCookieBanner();
+
+    if (cookieSettingsButton) {
+        cookieSettingsButton.classList.add("is-visible");
+    }
+
+    // Po wcześniejszej zgodzie odświeżamy stronę,
+    // aby uruchomiła się już bez Google Analytics.
+    if (analyticsWasLoaded) {
+        window.location.reload();
+    }
+}
+
+if (acceptAnalyticsButton) {
+    acceptAnalyticsButton.addEventListener("click", acceptAnalytics);
+}
+
+if (rejectAnalyticsButton) {
+    rejectAnalyticsButton.addEventListener("click", rejectAnalytics);
+}
+
+if (cookieSettingsButton) {
+    cookieSettingsButton.addEventListener("click", showCookieBanner);
+}
+
+// Odczyt wcześniejszej decyzji użytkownika
+
+const savedConsent = getAnalyticsConsent();
+
+if (savedConsent === "accepted") {
+    loadGoogleAnalytics();
+
+    if (cookieSettingsButton) {
+        cookieSettingsButton.classList.add("is-visible");
+    }
+} else if (savedConsent === "rejected") {
+    if (cookieSettingsButton) {
+        cookieSettingsButton.classList.add("is-visible");
+    }
+} else {
+    showCookieBanner();
+}

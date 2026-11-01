@@ -2,15 +2,6 @@
 <html lang="pl">
 
 <head>
-   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-554EK4HGWP"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-554EK4HGWP');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -305,7 +296,35 @@
 
     </footer>
 
+<!-- BANER COOKIES -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-labelledby="cookieTitle" aria-describedby="cookieDescription">
+    <div class="cookie-content">
+        <p class="cookie-label">CICHOWICZ STUDIO</p>
 
+        <h2 id="cookieTitle">Twoja prywatność ma znaczenie.</h2>
+
+        <p id="cookieDescription">
+            Ta strona korzysta z Google Analytics, aby analizować ruch
+            i ulepszać jej działanie. Analityka uruchomi się wyłącznie
+            po wyrażeniu zgody. Możesz zaakceptować lub odrzucić
+            opcjonalne pomiary.
+        </p>
+
+        <div class="cookie-actions">
+            <button type="button" id="acceptAnalytics" class="cookie-button cookie-accept">
+                Akceptuję
+            </button>
+
+            <button type="button" id="rejectAnalytics" class="cookie-button cookie-reject">
+                Odrzucam
+            </button>
+        </div>
+    </div>
+</div>
+
+<button type="button" class="cookie-settings" id="cookieSettings">
+    Ustawienia cookies
+</button>
     <script src="script.js"></script>
 
 </body>

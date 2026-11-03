@@ -109,6 +109,7 @@ const GA_MEASUREMENT_ID = "G-554EK4HGWP";
 const CONSENT_STORAGE_KEY = "cichowicz_analytics_consent";
 
 const cookieBanner = document.getElementById("cookieBanner");
+const cookieOverlay = document.getElementById("cookieOverlay");
 const acceptAnalyticsButton = document.getElementById("acceptAnalytics");
 const rejectAnalyticsButton = document.getElementById("rejectAnalytics");
 const cookieSettingsButton = document.getElementById("cookieSettings");
@@ -133,14 +134,25 @@ function showCookieBanner() {
     if (cookieBanner) {
         cookieBanner.classList.add("is-visible");
     }
+
+    if (cookieOverlay) {
+        cookieOverlay.classList.add("is-visible");
+    }
+
+    document.body.classList.add("cookie-locked");
 }
 
 function hideCookieBanner() {
     if (cookieBanner) {
         cookieBanner.classList.remove("is-visible");
     }
-}
 
+    if (cookieOverlay) {
+        cookieOverlay.classList.remove("is-visible");
+    }
+
+    document.body.classList.remove("cookie-locked");
+}
 function loadGoogleAnalytics() {
     if (window.cichowiczAnalyticsLoaded) return;
 
@@ -215,14 +227,10 @@ const savedConsent = getAnalyticsConsent();
 
 if (savedConsent === "accepted") {
     loadGoogleAnalytics();
+}
 
-    if (cookieSettingsButton) {
-        cookieSettingsButton.classList.add("is-visible");
-    }
-} else if (savedConsent === "rejected") {
-    if (cookieSettingsButton) {
-        cookieSettingsButton.classList.add("is-visible");
-    }
-} else {
-    showCookieBanner();
+showCookieBanner();
+
+if (cookieSettingsButton) {
+    cookieSettingsButton.classList.add("is-visible");
 }

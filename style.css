@@ -1745,3 +1745,34 @@ body.cookie-locked {
         font-size: clamp(42px, 10vw, 58px);
     }
 }
+
+/* Płynne przejście zdjęcia HERO w tło sekcji O MNIE */
+
+.hero {
+    position: relative;
+    isolation: isolate;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 220px;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(8, 41, 65, 0) 0%,
+        rgba(8, 41, 65, 0.45) 40%,
+        #082941 100%
+    );
+
+    pointer-events: none;
+}
+
+.hero-left,
+.hero-right {
+    z-index: 1;
+}
